@@ -8,14 +8,14 @@ import logger from "redux-logger";
 import { createStore, combineReducers, applyMiddleware } from "redux";
 import { Provider } from "react-redux";
 
-
+// state
 const feedback = {
   feeling: "",
   understanding: "",
   support: "",
   comments: ""
 };
-
+// Reducer that holds the values of 4 feedback question
 const feedbackReducer = (state = feedback, action) => {
     switch (action.type) {
         case 'SET_FEEDBACK_FEELING':
