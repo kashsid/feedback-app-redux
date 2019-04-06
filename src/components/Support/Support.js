@@ -1,13 +1,54 @@
-import React, { Component } from 'react'
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import ReviewFeedback from "../ReviewFeedback/ReviewFeedback";
 
 export class Support extends Component {
+  state = {
+    support: 0
+  };
+
+  handleChange = (event) => {
+    console.log(`in handleChange...`, this.state);
+
+    this.setState({
+      ...this.state,
+      feeling: event.target.value,
+    })
+  }
+
+  handleSubmit = () => {
+    console.log(`in handleSubmit...`);
+
+
+    if (this.state.feeling !== '') {
+      const action = {
+        type: "SET_FEEDBACK_SUPPORT",
+        payload: this.state.feeling
+      };
+      this.props.dispatch(action);
+
+      this.props.history.push('/comments');
+    } else {
+      alert(`Please select a number between 1 and 5.`);
+    }
+  }
   render() {
     return (
       <div>
-            <h1> How well are you being supported?</h1>
+        <h2>How well are you being supported?</h2>
+        <form onSubmit={this.handleSubmit} >
+          <input type="number" name="support"
+            min="1" max="5"
+            onChange={this.handleChange} />
+
+          <button type="submit">Next</button>
+        </form>
+
+        <br />
+        <ReviewFeedback />
       </div>
-    )
+    );
   }
 }
 
-export default Support
+export default connect()(Support);

@@ -6,6 +6,7 @@ export class Feeling extends Component {
          state = {
            feeling: 0
          };
+         
     handleChange = (event) => {
         console.log(`in handleChange...`, this.state);
 
