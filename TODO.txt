@@ -1,0 +1,19 @@
+1 -Create a multi-part form that allows users to leave feedback for today. 
+2- There will be 4 views for the form parts. So i wll create 4 components for this form.
+    - How are you feeling today?
+![feeling](wireframes/feeling.png)
+    - How well are you understanding the content?
+![understanding](wireframes/understanding.png)
+    - How well are you being supported?
+![support](wireframes/supported.png)
+    - Any comments you want to leave?
+![comments](wireframes/comments.png)
+
+3- The review component to see the progrees realtime. as soon as the user 
+    fills a view /component the review component will update with the data.
+4- once all sections of feedback form aree completed, the button on feedback form 
+will be enabeled to submit the data.
+5- once in DB, user should see a confirmation page. that is our 6th component.
+**************************
+
+
