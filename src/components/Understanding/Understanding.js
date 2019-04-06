@@ -20,7 +20,7 @@ export class Understanding extends Component {
         console.log(`in handleSubmit...`);
 
 
-        if (this.state.feeling !== '') {
+        if (this.state.feeling !== null) {
             const action = {
                 type: "SET_FEEDBACK_UNDERSTANDING",
                 payload: this.state.feeling
