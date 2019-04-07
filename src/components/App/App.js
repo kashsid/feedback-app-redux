@@ -12,6 +12,9 @@ import Comments from "../Comments/Comments";
 import ReviewFeedback from "../ReviewFeedback/ReviewFeedback";
 import Thanks  from "../Thanks/Thanks";
 
+import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
+import AppBar  from "material-ui/AppBar";
+
 class App extends Component {
   submitFeedback = (feedback) => {
     console.log(`in submitFeedback...`, feedback);
@@ -35,44 +38,47 @@ class App extends Component {
   } 
   render() {
     return (
-      
-        <Router>
-        
-          <div className="App">
-            <header className="App-header">
-              <h1 className="App-title">Feedback!</h1>
-              <h4>
-                <i>Don't forget it!</i>
-              </h4>
-            </header>
-            <br />
-            <div>
-              {/* routes will go here... */}
-            {/* <Switch> */}
-              <Route exact path="/" component={Feeling} />
-              <Route
-                exact path="/understanding" component={Understanding}
-              />
-              <Route exact path="/support" component={Support} />
-              <Route exact path="/comments" component={Comments} />
-              <Route exact path="/thanks" component={Thanks} />
-              <Route
-                exact path="/review"
-                render={props => (
-                  <ReviewFeedback
-                    {...props}
-                    submitFeedback={this.submitFeedback} 
-                  />
-                )}
-              />
-              
-            {/* </Switch> */}
+      <Router>
+        <MuiThemeProvider>
+          <React.Fragment>
+            <div className="App">
+              <header className="App-header">
+                {/* <h1 className="App-title">Feedback!</h1> */}
+                <AppBar title="Feedback"/>
+                <h4>
+                  <i>Don't forget it!</i>
+                </h4>
+              </header>
+              <br />
+              <div>
+                {/* routes will go here... */}
+                {/* <Switch> */}
+                <Route exact path="/" component={Feeling} />
+                <Route
+                  exact
+                  path="/understanding"
+                  component={Understanding}
+                />
+                <Route exact path="/support" component={Support} />
+                <Route exact path="/comments" component={Comments} />
+                <Route exact path="/thanks" component={Thanks} />
+                <Route
+                  exact
+                  path="/review"
+                  render={props => (
+                    <ReviewFeedback
+                      {...props}
+                      submitFeedback={this.submitFeedback}
+                    />
+                  )}
+                />
+
+                {/* </Switch> */}
+              </div>
             </div>
-            
-          </div>
-        
-        </Router>
-      
+          </React.Fragment>
+        </MuiThemeProvider>
+      </Router>
     );
   }
 }

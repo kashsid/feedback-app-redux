@@ -2,6 +2,11 @@ import React, { Component } from 'react'
 import { connect } from "react-redux";
 import ReviewFeedback from "../ReviewFeedback/ReviewFeedback";
 
+import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
+import AppBar from "material-ui/AppBar";
+import TextField from "material-ui/TextField";
+import RaisedButton from "material-ui/RaisedButton";
+
 export class Feeling extends Component {
          state = {
            feeling: 0
