@@ -28,6 +28,8 @@ const feedbackReducer = (state = feedback, action) => {
             return { ...state, support: action.payload }
         case 'SET_FEEDBACK_COMMENTS':
             return { ...state, comments: action.payload }
+        case 'SET_FEEDBACK_EMPTY':
+            return {feedback}
         default:
             break;
     }

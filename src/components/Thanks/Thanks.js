@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from "react-redux";
 
 export class Thanks extends Component {
 
@@ -19,4 +20,4 @@ export class Thanks extends Component {
     }
 }
 
-export default Success;
+export default connect()(Thanks);;

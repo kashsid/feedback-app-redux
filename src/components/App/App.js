@@ -10,8 +10,29 @@ import Understanding from "../Understanding/Understanding";
 import Support from "../Support/Support";
 import Comments from "../Comments/Comments";
 import ReviewFeedback from "../ReviewFeedback/ReviewFeedback";
+import { Thanks } from "../Thanks/Thanks";
 
 class App extends Component {
+  submitFeedback = (feedback) => {
+    console.log(`in submitFeedback...`, feedback);
+
+    axios({
+      method: 'POST',
+      url: '/feedback',
+      data: feedback
+    })
+      .then((response) => {
+        console.log(`Adding feedback successful.`);
+        // empty reducers 
+        const action = { type: 'SET_FEEDBACK_EMPTY' };
+        this.props.dispatch(action);
+
+      })
+      .catch((error) => {
+        console.log(`Error adding feedback.`, error);
+        alert(`Could not submit feedback. Try again later.`);
+      })
+  } 
   render() {
     return (
       <Router>
@@ -38,6 +59,7 @@ class App extends Component {
                 />
               )}
             />
+            <Route path="/thanks" component={Thanks} />
           </div>
         </div>
       </Router>
