@@ -11,6 +11,8 @@ import Support from "../Support/Support";
 import Comments from "../Comments/Comments";
 import ReviewFeedback from "../ReviewFeedback/ReviewFeedback";
 import Thanks  from "../Thanks/Thanks";
+import Admin from "../Admin/Admin";
+
 
 import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
 import AppBar  from "material-ui/AppBar";
@@ -72,7 +74,7 @@ class App extends Component {
                     />
                   )}
                 />
-
+                <Route exact path="/admin" component={Admin} />
                 {/* </Switch> */}
               </div>
             </div>

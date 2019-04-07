@@ -3,14 +3,17 @@ const router = express.Router();
 const pool = require("../modules/pool");
 // to get data from server
 router.get("/", (req, res) => {
-  console.log("GET /api/feedback");
+  console.log("GET /feedback");
   pool
     .query('SELECT * from "feedback";')
+    
+    
     .then(result => {
+      console.log("in GET method");
       res.send(result.rows);
     })
     .catch(error => {
-      console.log("Error GET /api/feedback", error);
+      console.log("Error GET /feedback", error);
       res.sendStatus(500);
     });
 });

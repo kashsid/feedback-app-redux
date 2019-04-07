@@ -13,12 +13,12 @@ class Admin extends Component {
         this.getFeedbacks();
     }
 
-    getOrders = () => {
+    getFeedbacks = () => {
         console.log(`getting feedbacks....`);
 
         axios({
             method: 'GET',
-            url: '/api/feedback'
+            url: '/feedback'
         })
             .then((response) => {
                 console.log(`Got feedback from DB`, response.data);
@@ -36,7 +36,7 @@ class Admin extends Component {
 
         return (
           <div>
-            <h2>Feedbacks</h2>
+           
             <div>
               <table className="table">
                 <thead className="thead-dark">
