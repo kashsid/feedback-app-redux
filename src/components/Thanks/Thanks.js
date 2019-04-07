@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
 
-export class Thanks extends Component {
+class Thanks extends Component {
 
     handleClick = () => {
-        console.log(`in handleClick...`);
+        console.log(`in Thanks handleClick...`);
         this.props.history.push('/');
     }
 
@@ -20,4 +20,4 @@ export class Thanks extends Component {
     }
 }
 
-export default connect()(Thanks);;
+export default connect()(Thanks);

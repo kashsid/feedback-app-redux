@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import axios from "axios";
 import "./App.css";
 // import and destructure router components from react-redux
-import { HashRouter as Router, Route } from "react-router-dom";
+import { HashRouter as Router, Route,Switch } from "react-router-dom";
 import { connect } from "react-redux";
 // Import Route components:
 import Feeling from "../Feeling/Feeling";
@@ -10,7 +10,7 @@ import Understanding from "../Understanding/Understanding";
 import Support from "../Support/Support";
 import Comments from "../Comments/Comments";
 import ReviewFeedback from "../ReviewFeedback/ReviewFeedback";
-import { Thanks } from "../Thanks/Thanks";
+import Thanks  from "../Thanks/Thanks";
 
 class App extends Component {
   submitFeedback = (feedback) => {
@@ -35,34 +35,44 @@ class App extends Component {
   } 
   render() {
     return (
-      <Router>
-        <div className="App">
-          <header className="App-header">
-            <h1 className="App-title">Feedback!</h1>
-            <h4>
-              <i>Don't forget it!</i>
-            </h4>
-          </header>
-          <br />
-          <div>
-            {/* routes will go here... */}
-            <Route exact path="/" component={Feeling} />
-            <Route exact path="/understanding" component={Understanding} />
-            <Route exact path="/support" component={Support} />
-            <Route exact path="/comments" component={Comments} />
-            <Route
-              exactpath="/review"
-              render={props => (
-                <ReviewFeedback
-                  {...props}
-                  submitFeedback={this.submitFeedback}
-                />
-              )}
-            />
-            <Route path="/thanks" component={Thanks} />
+      
+        <Router>
+        
+          <div className="App">
+            <header className="App-header">
+              <h1 className="App-title">Feedback!</h1>
+              <h4>
+                <i>Don't forget it!</i>
+              </h4>
+            </header>
+            <br />
+            <div>
+              {/* routes will go here... */}
+            {/* <Switch> */}
+              <Route exact path="/" component={Feeling} />
+              <Route
+                exact path="/understanding" component={Understanding}
+              />
+              <Route exact path="/support" component={Support} />
+              <Route exact path="/comments" component={Comments} />
+              <Route exact path="/thanks" component={Thanks} />
+              <Route
+                exact path="/review"
+                render={props => (
+                  <ReviewFeedback
+                    {...props}
+                    submitFeedback={this.submitFeedback} 
+                  />
+                )}
+              />
+              
+            {/* </Switch> */}
+            </div>
+            
           </div>
-        </div>
-      </Router>
+        
+        </Router>
+      
     );
   }
 }

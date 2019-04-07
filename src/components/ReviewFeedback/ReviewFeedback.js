@@ -16,10 +16,14 @@ export class ReviewFeedback extends Component {
 
     handleSubmit = () => {
         const feedback = this.props.reduxState.feedbackReducer;
+        console.log('in reviewfeedback handel submit ');
+        
         // sending data to POST  on App.js
         this.props.submitFeedback(feedback);
+        //const history=this.props.history
         // Route to thank you page!
         this.props.history.push('/thanks');
+        //history.push('/thanks')
     }
 
     render() {
