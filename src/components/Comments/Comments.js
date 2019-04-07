@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import ReviewFeedback from '../ReviewFeedback/ReviewFeedback';
+import TextField from "material-ui/TextField";
+import Button from "@material-ui/core/Button";
+
 
 export class Comments extends Component {
 
@@ -31,12 +34,29 @@ export class Comments extends Component {
     render() {
         return (
             <div>
-                <h2>Please leave Comments!</h2>
+                <h1>Any comments you want to leave?</h1>
 
                 <form onSubmit={this.handleSubmit}>
-                    <input type="text"
-                        onChange={this.handleChange} />
-                    <button type="submit">Submit Comments</button>
+                    {/* <input type="text"
+                        onChange={this.handleChange} /> */}
+                    <TextField
+                        hintText="Enter Your Comments"
+                        floatingLabelText="Comments"
+                        onChange={this.handleChange}
+                        
+                    />
+                    {/* <button type="submit">Submit Comments</button> */}
+                    <Button
+                        onClick={this.handleSubmit}
+                        type="submit"
+                        value="submit"
+                        style={{ fontSize: "14px", marginTop: "30px" }}
+                        size="medium"
+                        variant="contained"
+                        color="primary"
+                    >
+                        Next
+                </Button>
                 </form>
 
                 <br />

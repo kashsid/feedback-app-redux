@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import ReviewFeedback from "../ReviewFeedback/ReviewFeedback";
 
-
 import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
 import AppBar from "material-ui/AppBar";
 import TextField from "material-ui/TextField";
@@ -22,31 +21,30 @@ export class Support extends Component {
     support: 0
   };
 
-  handleChange = (event) => {
+  handleChange = event => {
     console.log(`in handleChange...`, this.state);
 
     this.setState({
       ...this.state,
-      feeling: event.target.value,
-    })
-  }
+      feeling: event.target.value
+    });
+  };
 
   handleSubmit = () => {
     console.log(`in handleSubmit...`);
 
-
-    if (this.state.feeling !== '') {
+    if (this.state.feeling !== "") {
       const action = {
         type: "SET_FEEDBACK_SUPPORT",
         payload: this.state.feeling
       };
       this.props.dispatch(action);
 
-      this.props.history.push('/comments');
+      this.props.history.push("/comments");
     } else {
       alert(`Please select a number between 1 and 5.`);
     }
-  }
+  };
   render() {
     return (
       // <div>
@@ -80,9 +78,7 @@ export class Support extends Component {
                   value="1"
                   control={<Radio color="primary" />}
                   label={
-                    <Typography
-                      style={{ fontSize: "1.1rem", color: "8a8989" }}
-                    >
+                    <Typography style={{ fontSize: "1.1rem", color: "8a8989" }}>
                       1
                     </Typography>
                   }
@@ -92,9 +88,7 @@ export class Support extends Component {
                   value="2"
                   control={<Radio color="primary" />}
                   label={
-                    <Typography
-                      style={{ fontSize: "1.1rem", color: "8a8989" }}
-                    >
+                    <Typography style={{ fontSize: "1.1rem", color: "8a8989" }}>
                       2
                     </Typography>
                   }
@@ -104,9 +98,7 @@ export class Support extends Component {
                   value="3"
                   control={<Radio color="primary" />}
                   label={
-                    <Typography
-                      style={{ fontSize: "1.1rem", color: "8a8989" }}
-                    >
+                    <Typography style={{ fontSize: "1.1rem", color: "8a8989" }}>
                       3
                     </Typography>
                   }
@@ -116,9 +108,7 @@ export class Support extends Component {
                   value="4"
                   control={<Radio color="primary" />}
                   label={
-                    <Typography
-                      style={{ fontSize: "1.1rem", color: "8a8989" }}
-                    >
+                    <Typography style={{ fontSize: "1.1rem", color: "8a8989" }}>
                       4
                     </Typography>
                   }
@@ -128,9 +118,7 @@ export class Support extends Component {
                   value="5"
                   control={<Radio color="primary" />}
                   label={
-                    <Typography
-                      style={{ fontSize: "1.1rem", color: "8a8989" }}
-                    >
+                    <Typography style={{ fontSize: "1.1rem", color: "8a8989" }}>
                       5
                     </Typography>
                   }
@@ -162,25 +150,24 @@ export class Support extends Component {
 }
 const styles = theme => ({
   button: {
-    margin: theme.spacing.unit,
+    margin: theme.spacing.unit
   },
   cssRoot: {
-    backgroundColor: blue[500],
+    backgroundColor: blue[500]
   },
   FormControl: {
     margin: theme.spacing.unit,
     width: 600,
-    height: 50,
-
-  },
+    height: 50
+  }
 });
 const theme = createMuiTheme({
   palette: {
-    primary: { main: blue[500] },
+    primary: { main: blue[500] }
   },
   typography: {
     // In Japanese the characters are usually larger.
-    useNextVariants: true,
+    useNextVariants: true
   }
 });
 
