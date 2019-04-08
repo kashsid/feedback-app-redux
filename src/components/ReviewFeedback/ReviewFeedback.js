@@ -48,7 +48,7 @@ export class ReviewFeedback extends Component {
     return (
       <div>
         <h2>Review Your Feedback</h2>
-        {/* 
+        {/* BASE Goal Code
                 <p>Feeling: {this.props.reduxState.feedbackReducer.feeling}</p>
                 <p>Understanding: {this.props.reduxState.feedbackReducer.understanding}</p>
                 <p>Support: {this.props.reduxState.feedbackReducer.support}</p>

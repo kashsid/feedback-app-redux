@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import axios from "axios";
 import "./App.css";
 // import and destructure router components from react-redux
-import { HashRouter as Router, Route,Switch } from "react-router-dom";
+import { HashRouter as Router, Route, Switch } from "react-router-dom";
 import { connect } from "react-redux";
 // Import Route components:
 import Feeling from "../Feeling/Feeling";
@@ -10,12 +10,11 @@ import Understanding from "../Understanding/Understanding";
 import Support from "../Support/Support";
 import Comments from "../Comments/Comments";
 import ReviewFeedback from "../ReviewFeedback/ReviewFeedback";
-import Thanks  from "../Thanks/Thanks";
+import Thanks from "../Thanks/Thanks";
 import Admin from "../Admin/Admin";
-
-
+// MUI Imports
 import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
-import AppBar  from "material-ui/AppBar";
+import AppBar from "material-ui/AppBar";
 
 class App extends Component {
   submitFeedback = feedback => {
@@ -39,8 +38,8 @@ class App extends Component {
   };
 
   deleteFeedback = id => {
-    console.log('in app delete');
-    
+    console.log("in app delete");
+
     const returnValue = axios({
       method: "DELETE",
       url: `admin/delete/${id}`
@@ -66,11 +65,7 @@ class App extends Component {
                 {/* routes will go here... */}
                 {/* <Switch> */}
                 <Route exact path="/" component={Feeling} />
-                <Route
-                  exact
-                  path="/understanding"
-                  component={Understanding}
-                />
+                <Route exact path="/understanding" component={Understanding} />
                 <Route exact path="/support" component={Support} />
                 <Route exact path="/comments" component={Comments} />
                 <Route exact path="/thanks" component={Thanks} />
@@ -88,10 +83,7 @@ class App extends Component {
                   exact
                   path="/admin"
                   render={props => (
-                    <Admin
-                      {...props}
-                      deleteFeedback={this.deleteFeedback}
-                    />
+                    <Admin {...props} deleteFeedback={this.deleteFeedback} />
                   )}
                 />
                 {/* </Switch> */}

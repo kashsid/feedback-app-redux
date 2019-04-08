@@ -2,19 +2,16 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import ReviewFeedback from "../ReviewFeedback/ReviewFeedback";
 import "../App/App.css";
+// Material UI Imports
 import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
-
 import Typography from "@material-ui/core/Typography";
 import { createMuiTheme } from "@material-ui/core/styles";
-//import MuiThemeProvider from "@material-ui/core/styles/MuiThemeProvider";
 import blue from "@material-ui/core/colors/blue";
 import RadioGroup from "@material-ui/core/RadioGroup";
 import { withStyles } from "@material-ui/core/styles";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Button from "@material-ui/core/Button";
 import Radio from "@material-ui/core/Radio";
-// import Icon from "@material-ui/core/Icon";
-// import classNames from "classnames";
 
 export class Feeling extends Component {
   state = {
@@ -50,6 +47,7 @@ export class Feeling extends Component {
     const { classes } = this.props;
 
     return (
+      //Base Mode code
       //  <div>
       //    <h2>How are you feeling today?</h2>
       //    <form onSubmit={this.handleSubmit}>
@@ -155,6 +153,7 @@ export class Feeling extends Component {
     );
   }
 }
+// Setting up theme for MUI
 const styles = theme => ({
   button: {
     margin: theme.spacing.unit
@@ -173,7 +172,6 @@ const theme = createMuiTheme({
     primary: { main: blue[500] }
   },
   typography: {
-    // In Japanese the characters are usually larger.
     useNextVariants: true
   }
 });
