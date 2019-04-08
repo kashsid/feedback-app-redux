@@ -6,8 +6,7 @@ router.get("/", (req, res) => {
   console.log("GET /feedback");
   pool
     .query('SELECT * from "feedback" order by id Desc;')
-    
-    
+
     .then(result => {
       console.log("in GET method");
       res.send(result.rows);
@@ -24,7 +23,7 @@ router.get("/", (req, res) => {
 router.post("/", (req, res) => {
   const feedback = req.body;
   console.log(`in router.post...`, feedback);
-    // Query to insert data will go here
+  // Query to insert data will go here
   let sqlText = `INSERT INTO "feedback" ("feeling", "understanding", "support", "comments")
     VALUES ($1, $2, $3, $4);`;
 
@@ -45,18 +44,19 @@ router.post("/", (req, res) => {
     });
 });
 
-
-router.delete('/delete/:id', (req, res) => {
+router.delete("/delete/:id", (req, res) => {
   const id = req.params.id;
   const sqlText = `DELETE FROM "feedback" WHERE "id" = $1;`;
-console.log('in Delete ');
+  console.log("in Delete ");
 
-  pool.query(sqlText, [id])
+  pool
+    .query(sqlText, [id])
     .then(() => {
       res.sendStatus(200);
-    }).catch((error) => {
+    })
+    .catch(error => {
       console.log(`Error deleting feedback entry:`, error);
       res.sendStatus(500);
-    })
+    });
 }); // END Delete Route
 module.exports = router;

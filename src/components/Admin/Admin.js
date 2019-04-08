@@ -19,7 +19,7 @@ class Admin extends Component {
     componentDidMount() {
         this.getFeedbacks();
     }
-
+    
     getFeedbacks = () => {
         console.log(`getting feedbacks....`);
 
@@ -69,7 +69,18 @@ class Admin extends Component {
     this.props.deleteFeedback(feedbackId);
   }
 
-  
+  getUpdatedFeedbacks = async () => {
+    let feedbacks = await this.props.getFeedback()
+      .catch((error) => {
+        alert('Error getting feedbacks, try again later');
+        
+      });
+
+    this.setState({
+      feedbacks: feedbacks.data,
+    
+    })
+  }
     render() {
 
         return (
@@ -93,8 +104,14 @@ class Admin extends Component {
                       <td>{feedback.support}</td>
                       <td>{feedback.comments}</td>
                       <td>
-                        <button className="Danger" onClick={this.checkDelete} value={feedback.id} getAll={this.getFeedbacks}>Delete</button>
-
+                        <button
+                          className="btn btn-danger"
+                          onClick={this.checkDelete}
+                          value={feedback.id}
+                          getUpdatedFeedbacks={this.getUpdatedFeedbacks}
+                        >
+                          Delete
+                        </button>
                       </td>
                     </tr>
                   ))}
