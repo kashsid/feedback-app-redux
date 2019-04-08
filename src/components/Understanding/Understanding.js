@@ -63,7 +63,7 @@ export class Understanding extends Component {
       <div>
         <MuiThemeProvider theme={theme}>
           <div className="question-div">
-                    <h1> How well are you understanding the content?</h1>
+            <h1> How well are you understanding the content?</h1>
             <div className="radio-buttons">
               <RadioGroup
                 style={{ display: "block" }}
@@ -73,7 +73,7 @@ export class Understanding extends Component {
                 onChange={this.handleChange}
                 row
               >
-                <i className="material-icons" />
+                <i class="material-icons blue600 md-36">thumb_down_alt </i>
                 <FormControlLabel
                   value="1"
                   control={<Radio color="primary" />}
@@ -124,7 +124,7 @@ export class Understanding extends Component {
                   }
                   labelPlacement="bottom"
                 />
-                <i class="material-icons" />
+                <i class="material-icons blue600 md-36">thumb_up_alt </i>
               </RadioGroup>
               <div className="button-div">
                 <Button

@@ -26,4 +26,10 @@ button{
 
 width:75px;
 }
+.material-icons.blue600 { 
+  color: rgb(10, 10, 240); 
+}
+.material-icons.md-36 { 
+  font-size: 36px; 
+}
 

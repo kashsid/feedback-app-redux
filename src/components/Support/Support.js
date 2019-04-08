@@ -73,12 +73,14 @@ export class Support extends Component {
                 onChange={this.handleChange}
                 row
               >
-                <i className="material-icons" />
+                <i class="material-icons blue600 md-36">thumb_down_alt </i>
                 <FormControlLabel
                   value="1"
                   control={<Radio color="primary" />}
                   label={
-                    <Typography style={{ fontSize: "1.1rem", color: "8a8989" }}>
+                    <Typography
+                      style={{ fontSize: "1.1rem", color: "8a8989" }}
+                    >
                       1
                     </Typography>
                   }
@@ -88,7 +90,9 @@ export class Support extends Component {
                   value="2"
                   control={<Radio color="primary" />}
                   label={
-                    <Typography style={{ fontSize: "1.1rem", color: "8a8989" }}>
+                    <Typography
+                      style={{ fontSize: "1.1rem", color: "8a8989" }}
+                    >
                       2
                     </Typography>
                   }
@@ -98,7 +102,9 @@ export class Support extends Component {
                   value="3"
                   control={<Radio color="primary" />}
                   label={
-                    <Typography style={{ fontSize: "1.1rem", color: "8a8989" }}>
+                    <Typography
+                      style={{ fontSize: "1.1rem", color: "8a8989" }}
+                    >
                       3
                     </Typography>
                   }
@@ -108,7 +114,9 @@ export class Support extends Component {
                   value="4"
                   control={<Radio color="primary" />}
                   label={
-                    <Typography style={{ fontSize: "1.1rem", color: "8a8989" }}>
+                    <Typography
+                      style={{ fontSize: "1.1rem", color: "8a8989" }}
+                    >
                       4
                     </Typography>
                   }
@@ -118,13 +126,15 @@ export class Support extends Component {
                   value="5"
                   control={<Radio color="primary" />}
                   label={
-                    <Typography style={{ fontSize: "1.1rem", color: "8a8989" }}>
+                    <Typography
+                      style={{ fontSize: "1.1rem", color: "8a8989" }}
+                    >
                       5
                     </Typography>
                   }
                   labelPlacement="bottom"
                 />
-                <i class="material-icons" />
+                <i class="material-icons blue600 md-36">thumb_up_alt </i>
               </RadioGroup>
               <div className="button-div">
                 <Button

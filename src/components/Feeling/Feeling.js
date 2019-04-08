@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import ReviewFeedback from "../ReviewFeedback/ReviewFeedback";
-
+import "../App/App.css";
 import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
 import AppBar from "material-ui/AppBar";
 import TextField from "material-ui/TextField";
@@ -15,6 +15,8 @@ import { withStyles } from "@material-ui/core/styles";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Button from "@material-ui/core/Button";
 import Radio from "@material-ui/core/Radio";
+// import Icon from "@material-ui/core/Icon";
+// import classNames from "classnames";
 
 export class Feeling extends Component {
   state = {
@@ -47,6 +49,8 @@ export class Feeling extends Component {
   };
 
   render() {
+    const { classes } = this.props;
+
     return (
       //  <div>
       //    <h2>How are you feeling today?</h2>
@@ -78,7 +82,7 @@ export class Feeling extends Component {
                 onChange={this.handleChange}
                 row
               >
-                <i className="material-icons" />
+                <i class="material-icons blue600 md-36">thumb_down_alt </i>
                 <FormControlLabel
                   value="1"
                   control={<Radio color="primary" />}
@@ -129,7 +133,7 @@ export class Feeling extends Component {
                   }
                   labelPlacement="bottom"
                 />
-                <i class="material-icons" />
+                <i class="material-icons blue600 md-36">thumb_up_alt </i>
               </RadioGroup>
               <div className="button-div">
                 <Button
