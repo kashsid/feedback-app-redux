@@ -11,6 +11,7 @@ app.use(express.static('build'));
 
 /** ---------- EXPRESS ROUTES ---------- **/
 app.use ('/feedback',router);
+app.use("/admin", router);
 
 /** ---------- START SERVER ---------- **/
 app.listen(PORT, () => {

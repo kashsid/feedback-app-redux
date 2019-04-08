@@ -5,7 +5,7 @@ const pool = require("../modules/pool");
 router.get("/", (req, res) => {
   console.log("GET /feedback");
   pool
-    .query('SELECT * from "feedback";')
+    .query('SELECT * from "feedback" order by id Desc;')
     
     
     .then(result => {
@@ -45,4 +45,18 @@ router.post("/", (req, res) => {
     });
 });
 
+
+router.delete('/delete/:id', (req, res) => {
+  const id = req.params.id;
+  const sqlText = `DELETE FROM "feedback" WHERE "id" = $1;`;
+console.log('in Delete ');
+
+  pool.query(sqlText, [id])
+    .then(() => {
+      res.sendStatus(200);
+    }).catch((error) => {
+      console.log(`Error deleting feedback entry:`, error);
+      res.sendStatus(500);
+    })
+}); // END Delete Route
 module.exports = router;

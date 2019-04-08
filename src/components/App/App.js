@@ -18,26 +18,36 @@ import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
 import AppBar  from "material-ui/AppBar";
 
 class App extends Component {
-  submitFeedback = (feedback) => {
+  submitFeedback = feedback => {
     console.log(`in submitFeedback...`, feedback);
 
     axios({
-      method: 'POST',
-      url: '/feedback',
+      method: "POST",
+      url: "/feedback",
       data: feedback
     })
-      .then((response) => {
+      .then(response => {
         console.log(`Adding feedback successful.`);
-        // empty reducers 
-        const action = { type: 'SET_FEEDBACK_EMPTY' };
+        // empty reducers
+        const action = { type: "SET_FEEDBACK_EMPTY" };
         this.props.dispatch(action);
-
       })
-      .catch((error) => {
+      .catch(error => {
         console.log(`Error adding feedback.`, error);
         alert(`Could not submit feedback. Try again later.`);
-      })
-  } 
+      });
+  };
+
+  deleteFeedback = id => {
+    console.log('in app delete');
+    
+    const returnValue = axios({
+      method: "DELETE",
+      url: `admin/delete/${id}`
+    });
+
+    return returnValue;
+  };
   render() {
     return (
       <Router>
@@ -46,7 +56,7 @@ class App extends Component {
             <div className="App">
               <header className="App-header">
                 {/* <h1 className="App-title">Feedback!</h1> */}
-                <AppBar title="Feedback"/>
+                <AppBar title="Feedback" />
                 <h4>
                   <i>Don't forget it!</i>
                 </h4>
@@ -74,7 +84,16 @@ class App extends Component {
                     />
                   )}
                 />
-                <Route exact path="/admin" component={Admin} />
+                <Route
+                  exact
+                  path="/admin"
+                  render={props => (
+                    <Admin
+                      {...props}
+                      deleteFeedback={this.deleteFeedback}
+                    />
+                  )}
+                />
                 {/* </Switch> */}
               </div>
             </div>

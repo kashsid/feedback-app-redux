@@ -3,9 +3,7 @@ import { connect } from "react-redux";
 import ReviewFeedback from "../ReviewFeedback/ReviewFeedback";
 import "../App/App.css";
 import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
-import AppBar from "material-ui/AppBar";
-import TextField from "material-ui/TextField";
-import RaisedButton from "material-ui/RaisedButton";
+
 import Typography from "@material-ui/core/Typography";
 import { createMuiTheme } from "@material-ui/core/styles";
 //import MuiThemeProvider from "@material-ui/core/styles/MuiThemeProvider";
